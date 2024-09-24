@@ -1,0 +1,113 @@
+# Analyzing Historical Price Movements Around U.S. Presidential Elections
+
+This project aims to analyze the historical price movements of the VIX (Volatility Index) and SPY (S&P 500 ETF) around U.S. presidential election dates. By examining the price data two months before, one month before, one month after, and two months after each election from 2000 to 2020, we can gain insights into market behavior surrounding these significant political events.
+
+## Table of Contents
+
+1. [Prerequisites](#prerequisites)
+2. [Installation](#installation)
+3. [Data Collection and Analysis](#data-collection-and-analysis)
+4. [Running the Script](#running-the-script)
+5. [Understanding the Results](#understanding-the-results)
+6. [Project Structure](#project-structure)
+7. [License](#license)
+
+## Prerequisites
+
+Before you begin, ensure you have the following:
+
+- **Python 3.6 or higher** installed on your machine. You can download it from [here](https://www.python.org/downloads/).
+- Basic understanding of Python programming.
+- Familiarity with financial markets and indices is beneficial but not mandatory.
+
+## Installation
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/yourusername/price-movements-analysis.git
+   cd price-movements-analysis
+   ```
+
+2. **Create a Virtual Environment (Optional but Recommended)**
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install Required Libraries**
+
+   Ensure you have the `pandas` and `yfinance` libraries installed. You can install them using `pip`:
+
+   ```bash
+   pip install pandas yfinance
+   ```
+
+## Data Collection and Analysis
+
+The core of this project is a Python script that downloads historical data and analyzes it relative to U.S. presidential elections.
+
+### Step-by-Step Breakdown
+
+1. **Import Necessary Libraries**
+
+   Import `pandas` for data manipulation and `yfinance` for financial data retrieval.
+
+2. **Define Election Dates**
+
+   Specify the dates of the U.S. presidential elections from 2000 to 2020.
+
+3. **Set Relative Periods**
+
+   Define the timeframes relative to each election date:
+   - 2 months before
+   - 1 month before
+   - 1 month after
+   - 2 months after
+
+4. **Download Historical Data**
+
+   Use `yfinance` to download historical data for VIX (`^VIX`) and SPY (`SPY`) from January 1, 2000, to January 1, 2021.
+
+5. **Calculate Price Movements**
+
+   For each election date, calculate and record the VIX and SPY prices at each of the defined relative periods.
+
+6. **Compile and Display Results**
+
+   Organize the collected data into a pandas DataFrame and display the results.
+
+## Running the Script
+
+1. **Locate the Script**
+
+   Ensure you are in the project directory and locate the Python script, e.g., `analyze_prices.py`.
+
+2. **Execute the Script**
+
+   Run the script using Python:
+
+   ```bash
+   python analyze_prices.py
+   ```
+
+   This will output a table displaying the VIX and SPY prices for each election year at the specified periods.
+
+## Understanding the Results
+
+The output will be a table with the following structure:
+
+| Year | VIX 2 months before | SPY 2 months before | VIX 1 month before | SPY 1 month before | VIX 1 month after | SPY 1 month after | VIX 2 months after | SPY 2 months after |
+|------|---------------------|---------------------|--------------------|--------------------|-------------------|-------------------|--------------------|--------------------|
+| 2000 | ...                 | ...                 | ...                | ...                | ...               | ...               | ...                | ...                |
+| 2004 | ...                 | ...                 | ...                | ...                | ...               | ...               | ...                | ...                |
+| ...  | ...                 | ...                 | ...                | ...                | ...               | ...               | ...                | ...                |
+
+- **Year:** The election year.
+- **VIX & SPY Columns:** Prices of VIX and SPY at the specified relative periods.
+
+This data can help identify patterns or anomalies in market behavior surrounding presidential elections.
+
+## Project Structure
+
