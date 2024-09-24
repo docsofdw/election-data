@@ -1,12 +1,10 @@
-# Project Title
-
 ![Correlation Heatmap](./correlation_heatmap.png)
 
-# Analyzing Historical Price Movements Around U.S. Presidential Elections
+Analyzing Historical Price Movements Around U.S. Presidential Elections
 
-This project aims to analyze the historical price movements of the VIX (Volatility Index) and SPY (S&P 500 ETF) around U.S. presidential election dates. By examining the price data two months before, one month before, one month after, and two months after each election from 2000 to 2020, we can gain insights into market behavior surrounding these significant political events.
+Looking at the historical price movements of the VIX and SPY (S&P 500 ETF) around U.S. presidential election dates. By examining the price data two months before, one month before, one month after, and two months after each election from 2000 to 2020.
 
-## Table of Contents
+Table of Contents
 
 1. [Prerequisites](#prerequisites)
 2. [Installation](#installation)
@@ -16,7 +14,7 @@ This project aims to analyze the historical price movements of the VIX (Volatili
 6. [Project Structure](#project-structure)
 7. [License](#license)
 
-## Prerequisites
+Prerequisites
 
 Before you begin, ensure you have the following:
 
@@ -24,7 +22,7 @@ Before you begin, ensure you have the following:
 - Basic understanding of Python programming.
 - Familiarity with financial markets and indices is beneficial but not mandatory.
 
-## Installation
+Installation
 
 1. **Clone the Repository**
 
@@ -48,11 +46,11 @@ Before you begin, ensure you have the following:
    pip install pandas yfinance
    ```
 
-## Data Collection and Analysis
+Data Collection and Analysis
 
 The core of this project is a Python script that downloads historical data and analyzes it relative to U.S. presidential elections.
 
-### Step-by-Step Breakdown
+Step-by-Step Breakdown
 
 1. **Import Necessary Libraries**
 
@@ -113,11 +111,11 @@ The output will be a table with the following structure:
 
 This data can help identify patterns or anomalies in market behavior surrounding presidential elections.
 
-## Visualizing the Data
+Visualizing the Data
 
 To better understand the trends and patterns in the data, we'll create visualizations using matplotlib and seaborn.
 
-### Installation
+Installation
 
 Install the required libraries:
 
@@ -125,7 +123,7 @@ Install the required libraries:
 pip install matplotlib seaborn
 ```
 
-### Creating Visualizations
+Creating Visualizations
 
 1. **Line Plot**: To show the trend of VIX and SPY across election years.
 2. **Bar Plot**: To compare VIX and SPY values before and after elections.
