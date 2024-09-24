@@ -1,3 +1,7 @@
+# Project Title
+
+![Correlation Heatmap](./correlation_heatmap.png)
+
 # Analyzing Historical Price Movements Around U.S. Presidential Elections
 
 This project aims to analyze the historical price movements of the VIX (Volatility Index) and SPY (S&P 500 ETF) around U.S. presidential election dates. By examining the price data two months before, one month before, one month after, and two months after each election from 2000 to 2020, we can gain insights into market behavior surrounding these significant political events.
