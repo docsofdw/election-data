@@ -1,223 +1,47 @@
-![Correlation Heatmap](./correlation_heatmap.png)
-
-Analyzing Historical Price Movements Around U.S. Presidential Elections
-
-Looking at the historical price movements of the VIX and SPY (S&P 500 ETF) around U.S. presidential election dates. By examining the price data two months before, one month before, one month after, and two months after each election from 2000 to 2020.
+Stock Movements Around U.S. Elections
+This project analyzes how the VIX and SPY (S&P 500 ETF) prices changed around U.S. presidential elections from 2000 to 2020.
 
 Table of Contents
-
-1. [Prerequisites](#prerequisites)
-2. [Installation](#installation)
-3. [Data Collection and Analysis](#data-collection-and-analysis)
-4. [Running the Script](#running-the-script)
-5. [Understanding the Results](#understanding-the-results)
-6. [Project Structure](#project-structure)
-7. [License](#license)
-
-Prerequisites
-
-Before you begin, ensure you have the following:
-
-- **Python 3.6 or higher** installed on your machine. You can download it from [here](https://www.python.org/downloads/).
-- Basic understanding of Python programming.
-- Familiarity with financial markets and indices is beneficial but not mandatory.
-
 Installation
-
-1. **Clone the Repository**
-
-   ```bash
-   git clone https://github.com/yourusername/price-movements-analysis.git
-   cd price-movements-analysis
-   ```
-
-2. **Create a Virtual Environment (Optional but Recommended)**
-
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. **Install Required Libraries**
-
-   Ensure you have the `pandas` and `yfinance` libraries installed. You can install them using `pip`:
-
-   ```bash
-   pip install pandas yfinance
-   ```
-
-Data Collection and Analysis
-
-The core of this project is a Python script that downloads historical data and analyzes it relative to U.S. presidential elections.
-
-Step-by-Step Breakdown
-
-1. **Import Necessary Libraries**
-
-   Import `pandas` for data manipulation and `yfinance` for financial data retrieval.
-
-2. **Define Election Dates**
-
-   Specify the dates of the U.S. presidential elections from 2000 to 2020.
-
-3. **Set Relative Periods**
-
-   Define the timeframes relative to each election date:
-   - 2 months before
-   - 1 month before
-   - 1 month after
-   - 2 months after
-
-4. **Download Historical Data**
-
-   Use `yfinance` to download historical data for VIX (`^VIX`) and SPY (`SPY`) from January 1, 2000, to January 1, 2021.
-
-5. **Calculate Price Movements**
-
-   For each election date, calculate and record the VIX and SPY prices at each of the defined relative periods.
-
-6. **Compile and Display Results**
-
-   Organize the collected data into a pandas DataFrame and display the results.
-
-## Running the Script
-
-1. **Locate the Script**
-
-   Ensure you are in the project directory and locate the Python script, e.g., `analyze_prices.py`.
-
-2. **Execute the Script**
-
-   Run the script using Python:
-
-   ```bash
-   python analyze_prices.py
-   ```
-
-   This will output a table displaying the VIX and SPY prices for each election year at the specified periods.
-
-## Understanding the Results
-
-The output will be a table with the following structure:
-
-| Year | VIX 2 months before | SPY 2 months before | VIX 1 month before | SPY 1 month before | VIX 1 month after | SPY 1 month after | VIX 2 months after | SPY 2 months after |
-|------|---------------------|---------------------|--------------------|--------------------|-------------------|-------------------|--------------------|--------------------|
-| 2000 | ...                 | ...                 | ...                | ...                | ...               | ...               | ...                | ...                |
-| 2004 | ...                 | ...                 | ...                | ...                | ...               | ...               | ...                | ...                |
-| ...  | ...                 | ...                 | ...                | ...                | ...               | ...               | ...                | ...                |
-
-- **Year:** The election year.
-- **VIX & SPY Columns:** Prices of VIX and SPY at the specified relative periods.
-
-This data can help identify patterns or anomalies in market behavior surrounding presidential elections.
-
-Visualizing the Data
-
-To better understand the trends and patterns in the data, we'll create visualizations using matplotlib and seaborn.
-
+Usage
+Results
+License
 Installation
+Clone the Repository
 
-Install the required libraries:
+bash
+Copy code
+git clone https://github.com/yourusername/price-movements-analysis.git
+cd price-movements-analysis
+Set Up a Virtual Environment (Optional)
 
-```bash
-pip install matplotlib seaborn
-```
+bash
+Copy code
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+Install Dependencies
 
-Creating Visualizations
+bash
+Copy code
+pip install pandas yfinance matplotlib seaborn
+Usage
+Run the Analysis Script
 
-1. **Line Plot**: To show the trend of VIX and SPY across election years.
-2. **Bar Plot**: To compare VIX and SPY values before and after elections.
-3. **Heatmap**: To visualize the correlation between VIX and SPY movements.
+bash
+Copy code
+python analyze_prices.py
+This will generate:
 
-Add the following code to your script to generate these visualizations:
+election_price_movements.csv
+election_trends.png
+vix_comparison.png
+correlation_heatmap.png
+Results
+CSV File: Contains VIX and SPY prices two months before, one month before, one month after, and two months after each election.
+Visualizations:
+Line Plot: Trends of VIX and SPY around elections.
+Bar Chart: Comparison of VIX before and after elections.
+Heatmap: Correlation between price movements.
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-```python
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-# Load the CSV data
-data = pd.read_csv('election_price_movements.csv')
-
-# Line Plot
-plt.figure(figsize=(12, 6))
-plt.plot(data['Year'], data['VIX 1 month before'], label='VIX 1 month before')
-plt.plot(data['Year'], data['VIX 1 month after'], label='VIX 1 month after')
-plt.plot(data['Year'], data['SPY 1 month before'], label='SPY 1 month before')
-plt.plot(data['Year'], data['SPY 1 month after'], label='SPY 1 month after')
-plt.title('VIX and SPY Trends Around Elections')
-plt.xlabel('Election Year')
-plt.ylabel('Price')
-plt.legend()
-plt.savefig('election_trends.png')
-plt.close()
-
-# Bar Plot
-plt.figure(figsize=(12, 6))
-x = np.arange(len(data['Year']))
-width = 0.35
-plt.bar(x - width/2, data['VIX 1 month before'], width, label='VIX 1 month before')
-plt.bar(x + width/2, data['VIX 1 month after'], width, label='VIX 1 month after')
-plt.title('VIX Before and After Elections')
-plt.xlabel('Election Year')
-plt.ylabel('VIX Price')
-plt.xticks(x, data['Year'])
-plt.legend()
-plt.savefig('vix_comparison.png')
-plt.close()
-
-# Heatmap
-correlation = data.corr()
-plt.figure(figsize=(10, 8))
-sns.heatmap(correlation, annot=True, cmap='coolwarm')
-plt.title('Correlation Heatmap of Price Movements')
-plt.savefig('correlation_heatmap.png')
-plt.close()
-```
-
-## Further Analysis
-
-To gain deeper insights from the data, consider the following additional analyses:
-
-1. **Percentage Changes**: Calculate the percentage change in VIX and SPY prices from before to after the elections.
-
-2. **Statistical Tests**: Perform t-tests or ANOVA to determine if there are statistically significant differences in prices before and after elections.
-
-3. **Moving Averages**: Calculate and plot moving averages to smooth out short-term fluctuations and highlight longer-term trends.
-
-4. **Volatility Analysis**: Compare the volatility of VIX and SPY during election periods to non-election periods.
-
-Here's a sample code snippet to calculate percentage changes:
-
-```python
-data['VIX_1m_change'] = (data['VIX 1 month after'] - data['VIX 1 month before']) / data['VIX 1 month before'] * 100
-data['SPY_1m_change'] = (data['SPY 1 month after'] - data['SPY 1 month before']) / data['SPY 1 month before'] * 100
-
-print(data[['Year', 'VIX_1m_change', 'SPY_1m_change']])
-```
-
-## Interpreting the Results
-
-When analyzing the visualizations and additional calculations:
-
-1. Look for patterns in VIX and SPY movements around election years.
-2. Identify any years with unusual price movements.
-3. Consider the broader economic and political context of each election year.
-4. Examine the correlation between VIX and SPY movements.
-5. Compare the magnitude of changes across different election years.
-
-Remember that past performance does not guarantee future results, and many factors beyond elections can influence market behavior.
-
-## Next Steps
-
-1. Expand the analysis to include more financial instruments or indices.
-2. Incorporate additional data sources, such as economic indicators or polling data.
-3. Develop a predictive model based on historical patterns.
-4. Create an interactive dashboard to explore the data visually.
-
-## Contributing
-
-Contributions to this project are welcome! Please fork the repository and submit a pull request with your proposed changes.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
